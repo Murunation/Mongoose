@@ -1,6 +1,10 @@
 import express, { response } from "express";
 import Movie from "../model/Movie.js";
-import { getMovies, getMoviesTitle } from "../services/mon-service.js";
+import {
+  addMovie,
+  getMovies,
+  getMoviesTitle,
+} from "../services/mon-service.js";
 
 const movieRouter = express.Router();
 
@@ -21,5 +25,30 @@ movieRouter.get("/movie", async (req, res) => {
   } else {
     res.status(400).send({ error: "something went wrong" });
   }
+});
+
+movieRouter.post("/movie", async (req, res) => {
+  console.log("Body: ", req.body);
+  const response = await addMovie(req.body);
+  if (response == "ok") {
+    res.status(200).send("success");
+  } else {
+    res.status(400).send(response);
+  }
+});
+
+movieRouter.get("/update", async () => {
+  const result = await Movie.findOneAndUpdate(
+    { title: "Just test movie" },
+    { year: 2011 }
+  ).exec();
+  console.log("result ", result);
+});
+
+movieRouter.delete("/delete", async () => {
+  const result = await Movie.findOneAndDelete({
+    title: "Just test movie",
+  }).exec();
+  console.log("result: ", result);
 });
 export default movieRouter;

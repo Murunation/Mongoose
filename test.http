@@ -7,3 +7,15 @@ GET http://localhost:4000/movie?title=The%20Land%20Beyond%20the%20Sunset
 
 
 ###
+
+GET http://localhost:4000/movie?title=Just%20test%20movie
+###
+
+POST http://localhost:4000/movie
+
+Content-Type: application/json
+
+{
+    "title": "Just test movie",
+    "year": 2001,
+}
