@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 mongoose
   .connect(
-    "mongodb+srv://User1:mm.123456@cplus0.sw3hupt.mongodb.net/sample_mflix?authMechanism=DEFAULT"
+    "mongodb+srv://User1:mm.123456@cplus0.sw3hupt.mongodb.net/ecommerce?authMechanism=DEFAULT"
   )
   .then((res) => {
     console.log("Connected");
