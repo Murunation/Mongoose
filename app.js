@@ -15,23 +15,23 @@ const port = 4000;
 
 // Upload
 
-const res = cloudinary.v2.uploader.upload(
-  "https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
-  {
-    public_id: "test1",
-    folder: "test",
-    use_filename: true,
-  }
-);
+// const res = cloudinary.v2.uploader.upload(
+//   "https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
+//   {
+//     public_id: "test1",
+//     folder: "test",
+//     use_filename: true,
+//   }
+// );
 
-res
-  .then((data) => {
-    console.log(data);
-    console.log(data.secure_url);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// res
+//   .then((data) => {
+//     console.log(data);
+//     console.log(data.secure_url);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 app.use(bodyParser.json());
 app.use(cors());

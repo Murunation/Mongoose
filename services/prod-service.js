@@ -9,15 +9,8 @@ export async function getProducts() {
 const date = moment().format("llll");
 
 export async function postProduct(newProduct) {
-  return await Products.create({
-    name: newProduct.name,
-    price: newProduct.price,
-    stock: newProduct.stock,
-    category: newProduct.category,
-    description: newProduct.description,
-    spec: newProduct.spec,
-    created_date: date,
-    update_date: date,
+  return await Products.insertMany({
+    ...newProduct,
   });
 }
 
