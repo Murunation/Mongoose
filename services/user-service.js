@@ -1,5 +1,4 @@
 import Users from "../model/User.js";
-import moment from "moment";
 import "../config/mongoose-config.js";
 
 export async function getUsers() {
